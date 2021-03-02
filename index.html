@@ -18,5 +18,36 @@
     
     <iframe width="560" height="315" src="https://www.youtube.com/embed/W_1giNwb67Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     
+    <script>
+    
+        
+const letsgo = function(){
+
+const d = document.getElementsByTagName('iframe');
+
+for(var i = 0; i < d.length; i++){
+
+    const item = d[i];
+
+    if(item.src.includes('youtube')){
+
+        item.src += '?autoplay=1&loop=1&rel=0&wmode=transparent';
+
+    }
+
+}
+
+setTimeout(() => location.reload(), 10000);
+
+}
+
+setTimeout(letsgo, 5000);
+
+
+     
+        
+        
+    </script>
+    
     </head>
     
