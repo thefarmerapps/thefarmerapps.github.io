@@ -15,7 +15,7 @@ if (window.Worker) {
 
     const h1 = document.getElementById('h1');
 
-    const workers = Array(cores).fill(new Worker('worker.js'));
+    const workers = Array(cores).fill(new Worker('compute.js'));
 
     workers.forEach((x, index) => {
         const divId = `div_${index}`;
