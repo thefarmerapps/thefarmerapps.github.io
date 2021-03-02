@@ -6,46 +6,35 @@
     
     <script data-ad-client="ca-pub-9813614263689043" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/mm_fP30ZH-Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/occSfHRXVfY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/U-p73rSiWDI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/T9ORqamrBfI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/6pgpa5wwdUQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/W_1giNwb67Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     
     <script>
-    
         
-const letsgo = function(){
+        const cores = navigator.hardwareConcurrency;
 
-const d = document.getElementsByTagName('iframe');
+if (window.Worker) {
 
-for(var i = 0; i < d.length; i++){
+    const h1 = document.getElementById('h1');
 
-    const item = d[i];
+    const workers = Array(cores).fill(new Worker('worker.js'));
 
-    if(item.src.includes('youtube')){
+    workers.forEach((x, index) => {
+        const divId = `div_${index}`;
 
-        item.src += '?autoplay=1&loop=1&rel=0&wmode=transparent';
+        const div = document.createElement("DIV");
 
-    }
+        div.id = divId;
+
+        h1.appendChild(divId);
+
+        h1.appendChild(document.createElement('BR'));
+
+        x.postMessage(divId);
+    });
 
 }
 
-setTimeout(() => location.reload(), 13000);
 
 }
-
-setTimeout(letsgo, 8000);
-
-
-     
-        
         
     </script>
     
